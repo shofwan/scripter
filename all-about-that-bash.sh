@@ -905,6 +905,14 @@ gfor() {
     git fetch --no-tags origin $currBranch; git rebase;
 }
 
+gfo-endless() {
+    while [ : ]
+    do
+        git fetch --no-tags origin ${1};
+        sleep 30m
+    done
+}
+
 arclog() {
     arc patch ${1} ; git log;
 }
