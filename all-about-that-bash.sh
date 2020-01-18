@@ -925,8 +925,14 @@ gfinds() {
      git branch -r --contains ${1};
 }
 
+br() {
+     $(beiartf-refresh);
+}
+
 ##change from flight/fpr-reschedule-booking-impl into ./gradlew flight:fpr-reschedule-booking-impl:idea
 gri() {
+  echo "running \$(beiartf-refresh);"
+  $(beiartf-refresh);
   str=$(echo ${1} | sed "s/\//:/g" | xargs -I{} echo "./gradlew {}:idea")
   echo "running $str";
   $str;
