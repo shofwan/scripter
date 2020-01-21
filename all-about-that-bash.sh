@@ -896,6 +896,10 @@ git-land() {
     fi
 }
 
+gcp() {
+    git cherry-pick ${1};
+}
+
 gfo() {
     git fetch --no-tags origin ${1};
 }
