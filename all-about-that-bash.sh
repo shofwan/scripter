@@ -904,6 +904,10 @@ gfo() {
     git fetch --no-tags origin ${1};
 }
 
+gfodep() {
+    git fetch --no-tags fprdeployment ${1};
+}
+
 gfor() {
     currBranch=$(git branch | grep \* | cut -d ' ' -f2)
     git fetch --no-tags origin $currBranch; git rebase;
