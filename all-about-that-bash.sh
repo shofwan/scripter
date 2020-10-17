@@ -905,7 +905,7 @@ gfo() {
 }
 
 gfodep() {
-    git fetch --no-tags fprdeployment ${1};
+    git fetch --no-tags fprdeployment ${1}; git rebase;
 }
 
 gfor() {
@@ -939,8 +939,8 @@ br() {
 
 ##change from flight/fpr-reschedule-booking-impl into ./gradlew flight:fpr-reschedule-booking-impl:idea
 gri() {
-  echo "running \$(beiartf-refresh);"
-  $(beiartf-refresh);
+#  echo "running \$(beiartf-refresh);"
+#  $(beiartf-refresh);
   str=$(echo ${1} | sed "s/\//:/g" | xargs -I{} echo "./gradlew {}:idea")
   echo "running $str";
   $str;
