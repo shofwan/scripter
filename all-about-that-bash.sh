@@ -937,6 +937,20 @@ br() {
      $(beiartf-refresh);
 }
 
+gcpa() {
+    git cherry-pick --abort;
+}
+
+gcpc() {
+    git cherry-pick --continue;
+}
+
+login-etc() {
+  gsts --aws-profile saml;
+  ./scripts/assume_role.sh -p saml;
+  #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/;
+}
+
 ##change from flight/fpr-reschedule-booking-impl into ./gradlew flight:fpr-reschedule-booking-impl:idea
 gri() {
 #  echo "running \$(beiartf-refresh);"
