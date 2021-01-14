@@ -900,6 +900,10 @@ gcp() {
     git cherry-pick ${1};
 }
 
+gcpa() {
+    git cherry-pick --abort;
+}
+
 gfo() {
     git fetch --no-tags origin ${1};
 }
@@ -919,6 +923,15 @@ gfo-endless() {
         git fetch --no-tags origin ${1};
         sleep 30m
     done
+}
+
+gp() {
+    git push
+}
+
+gpu() {
+    currBranch=$(git branch | grep \* | cut -d ' ' -f2)
+    git push --set-upstream origin $currBranch
 }
 
 arclog() {
