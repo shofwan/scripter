@@ -945,10 +945,24 @@ gcpc() {
     git cherry-pick --continue;
 }
 
+gpu() {
+    currBranch=$(git branch | grep \* | cut -d ' ' -f2)
+    git push --set-upstream origin $currBranch;
+}
+
 login-etc() {
   gsts --aws-profile saml;
   ./scripts/assume_role.sh -p saml;
   #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/;
+}
+login-etc-endless() {
+    while [ : ]
+    do
+        gsts --aws-profile saml;
+        ./scripts/assume_role.sh -p saml;
+        #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/;
+        sleep 30m
+    done
 }
 
 ##change from flight/fpr-reschedule-booking-impl into ./gradlew flight:fpr-reschedule-booking-impl:idea
