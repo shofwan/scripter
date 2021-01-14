@@ -904,6 +904,10 @@ gcpa() {
     git cherry-pick --abort;
 }
 
+gcpc() {
+    git cherry-pick --continue;
+}
+
 gfo() {
     git fetch --no-tags origin ${1};
 }
@@ -948,19 +952,6 @@ gfinds() {
 
 br() {
      $(beiartf-refresh);
-}
-
-gcpa() {
-    git cherry-pick --abort;
-}
-
-gcpc() {
-    git cherry-pick --continue;
-}
-
-gpu() {
-    currBranch=$(git branch | grep \* | cut -d ' ' -f2)
-    git push --set-upstream origin $currBranch;
 }
 
 login-etc() {
