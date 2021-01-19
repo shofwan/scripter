@@ -933,6 +933,15 @@ gp() {
     git push
 }
 
+gpf() {
+    currBranch=$(git branch | grep \* | cut -d ' ' -f2)
+    git fetch upstream $currBranch; git rebase; git push upstream
+}
+
+gf() {
+    git fetch upstream ${1}
+}
+
 gpu() {
     currBranch=$(git branch | grep \* | cut -d ' ' -f2)
     git push --set-upstream origin $currBranch
