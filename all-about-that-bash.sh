@@ -942,6 +942,14 @@ gf() {
     git fetch upstream ${1}
 }
 
+gf-endless() {
+    while [ : ]
+    do
+        git fetch ${1};
+        sleep 30m
+    done
+}
+
 gpu() {
     currBranch=$(git branch | grep \* | cut -d ' ' -f2)
     git push --set-upstream origin $currBranch
@@ -957,6 +965,9 @@ greset() {
 
 gfinds() {
      git branch -r --contains ${1};
+}
+gretry-build() {
+  git commit -m "retry build" --allow-empty; git push;
 }
 
 br() {
